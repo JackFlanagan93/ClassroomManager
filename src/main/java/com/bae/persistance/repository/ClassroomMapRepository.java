@@ -7,44 +7,49 @@ import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
 
 import com.bae.persistance.domain.Classroom;
+import com.bae.persistance.domain.Trainees;
 import com.bae.util.JSONUtil;
 
 @Alternative
-public class ClassroomMapRepository implements Classroom_Interface{
+public class ClassroomMapRepository implements Classroom_Interface {
 
 	Map<Integer, Classroom> classroomMap = new HashMap<Integer, Classroom>();
-	
+
 	@Inject
 	JSONUtil j1;
-	
+
 	@Override
 	public String getAllClassrooms() {
-		// TODO Auto-generated method stub
-		return "getAllClassrooms";
+		return j1.getJSONForObject(classroomMap.values());
 	}
 
 	@Override
 	public String findClassroom(int classroomID) {
-		// TODO Auto-generated method stub
-		return null;
+		return j1.getJSONForObject(classroomMap.get(classroomID));
 	}
 
 	@Override
 	public String createClassroom(String classroom) {
-		// TODO Auto-generated method stub
-		return null;
+		Classroom a1 = j1.getObjectForJSON(classroom, Classroom.class);
+		classroomMap.put(a1.getClassroomId(), a1);
+		return ("Account Created : " + j1.getJSONForObject(classroomMap.get(a1.getClassroomId())));
 	}
 
 	@Override
 	public String deleteClassroom(int classroomID) {
-		// TODO Auto-generated method stub
-		return null;
+		classroomMap.remove(classroomID);
+		return "Trainee Removed";
 	}
 
 	@Override
 	public String updateClassroom(int classroomID, String classroom) {
-		// TODO Auto-generated method stub
-		return null;
+		Classroom c_update = j1.getObjectForJSON(classroom, Classroom.class);
+
+		if (classroomMap.containsKey(classroomID)) {
+			classroomMap.replace(classroomID, c_update);
+			return "Trainee Updated : " + j1.getJSONForObject(classroomMap.values());
+		}
+		return "This has not been updated";
 	}
 
 }
