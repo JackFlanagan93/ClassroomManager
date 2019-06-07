@@ -12,7 +12,7 @@ public class TraineesController {
 	@Inject
 	TraineesService service;
 	
-	@Path("/GetAllAccounts")
+	@Path("/GetAllTrainees")
 	@GET
 	public String getAllTrainees() {
 		return service.getAllTrainees();
