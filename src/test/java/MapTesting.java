@@ -14,12 +14,12 @@ public class MapTesting {
 	/*
 	 * Test Plan
 	 * Create a Classroom
-	 * Remove a Classroom
+	 * Retrive a Classroom
 	 * Update a Classroom
 	 * Delete a Classroom
 	 * 
 	 * Create a Trainee
-	 * Remove a Trainee
+	 * Retrive a Trainee
 	 * Update a Trainee
 	 * Delete a Trainee
 	 * 	
@@ -59,6 +59,8 @@ public void deleteClassroom() {
 	
 	assertEquals("Classroom Removed", classroom.deleteClassroom(1));
 }
+
+
 
 
 }
