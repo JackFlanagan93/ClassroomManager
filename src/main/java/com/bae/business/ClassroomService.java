@@ -21,9 +21,9 @@ public class ClassroomService implements ClassroomService_Interface{
 	}
 
 	@Override
-	public String findClassroom(String classroomID) {
-		// TODO Auto-generated method stub
-		return null;
+	public String findClassroom(int classroomID) {
+		return classroom.findClassroom(classroomID);
+		 
 	}
 
 	@Override

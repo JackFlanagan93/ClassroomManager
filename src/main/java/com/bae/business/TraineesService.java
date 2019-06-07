@@ -19,9 +19,9 @@ public class TraineesService implements TraineesService_Interface{
 	}
 
 	@Override
-	public String findTrainee(String traineeID) {
-		// TODO Auto-generated method stub
-		return null;
+	public String findTrainee(int traineeID) {
+		return trainees.findTrainee(traineeID);
+
 	}
 
 	@Override

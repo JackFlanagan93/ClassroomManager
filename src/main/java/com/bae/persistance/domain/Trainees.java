@@ -10,7 +10,7 @@ import javax.persistence.Id;
 public class Trainees {
 
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private int traineeId;
+	private int traineeID;
 	@Column(length=50)
 	private String traineeName;
 
@@ -19,16 +19,16 @@ public class Trainees {
 	}
 
 	public Trainees(int traineeId, String traineeName) {
-		this.traineeId = traineeId;
+		this.traineeID = traineeId;
 		this.traineeName = traineeName;
 	}
 
 	public int getTraineeId() {
-		return traineeId;
+		return traineeID;
 	}
 
 	public void setTraineeId(int traineeId) {
-		this.traineeId = traineeId;
+		this.traineeID = traineeId;
 	}
 
 	public String getTraineeName() {

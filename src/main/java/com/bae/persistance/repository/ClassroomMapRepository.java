@@ -24,7 +24,7 @@ public class ClassroomMapRepository implements Classroom_Interface{
 	}
 
 	@Override
-	public String findClassroom(String classroomID) {
+	public String findClassroom(int classroomID) {
 		// TODO Auto-generated method stub
 		return null;
 	}

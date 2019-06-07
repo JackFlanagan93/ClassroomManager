@@ -24,9 +24,9 @@ public class TraineesDatabaseRepository implements Trainees_Interface {
 		return util.getJSONForObject(query.getResultList());
 	}
 
-	public String findTrainee(String traineeID) {
-		// TODO Auto-generated method stub
-		return null;
+	public String findTrainee(int traineeID) {
+		return util.getJSONForObject(manager.find(Trainees.class, traineeID));
+		
 	}
 
 	public String createTrainee(String traineeID) {

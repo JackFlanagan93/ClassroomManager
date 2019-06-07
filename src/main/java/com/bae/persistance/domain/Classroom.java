@@ -10,7 +10,7 @@ import javax.persistence.Id;
 public class Classroom {
 
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private int classroomId;
+	private int classroomID;
 	@Column(length=50)
 	private String trainer;
 
@@ -19,16 +19,16 @@ public class Classroom {
 	}
 
 	public Classroom(int classroomId, String trainer) {
-		this.classroomId = classroomId;
+		this.classroomID = classroomId;
 		this.trainer = trainer;
 	}
 
 	public int getClassroomId() {
-		return classroomId;
+		return classroomID;
 	}
 
 	public void setClassroomId(int classroomId) {
-		this.classroomId = classroomId;
+		this.classroomID = classroomId;
 	}
 
 	public String getTrainer() {

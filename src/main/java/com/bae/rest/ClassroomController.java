@@ -3,6 +3,7 @@ package com.bae.rest;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 
 import com.bae.business.ClassroomService;
 
@@ -19,4 +20,11 @@ public class ClassroomController {
 		
 	}
 	
+	@Path("/FindClassroom/{classroomID}")
+	@GET
+	public String findClassroom(@PathParam("classroomID") int classroomID) {
+		return service.findClassroom(classroomID);
+	}
+	
 }
+

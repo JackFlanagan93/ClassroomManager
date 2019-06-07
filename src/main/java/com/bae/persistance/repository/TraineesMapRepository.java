@@ -24,7 +24,7 @@ public class TraineesMapRepository implements Trainees_Interface {
 	}
 
 	@Override
-	public String findTrainee(String traineeID) {
+	public String findTrainee(int traineeID) {
 		// TODO Auto-generated method stub
 		return null;
 	}

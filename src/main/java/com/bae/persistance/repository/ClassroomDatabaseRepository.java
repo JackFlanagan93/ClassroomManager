@@ -7,6 +7,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import com.bae.persistance.domain.Classroom;
+import com.bae.persistance.domain.Trainees;
 import com.bae.util.JSONUtil;
 
 
@@ -25,9 +26,8 @@ public class ClassroomDatabaseRepository implements Classroom_Interface{
 		return util.getJSONForObject(query.getResultList());
 	}
 
-	public String findClassroom(String classroomID) {
-		// TODO Auto-generated method stub
-		return null;
+	public String findClassroom(int classroomID) {
+		return util.getJSONForObject(manager.find(Classroom.class, classroomID));
 	}
 
 	public String createClassroom(String classroomID) {
