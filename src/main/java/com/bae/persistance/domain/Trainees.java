@@ -9,7 +9,8 @@ import javax.persistence.Id;
 @Entity
 public class Trainees {
 
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	@Id 
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int traineeID;
 	@Column(length=50)
 	private String traineeName;
