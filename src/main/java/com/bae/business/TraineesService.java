@@ -5,14 +5,14 @@ import javax.inject.Inject;
 import com.bae.persistance.repository.Trainees_Interface;
 import com.bae.util.JSONUtil;
 
-public class TraineesService implements TraineesService_Interface{
+public class TraineesService implements TraineesService_Interface {
 
 	@Inject
 	private JSONUtil util;
-	
+
 	@Inject
 	Trainees_Interface Trainees;
-	
+
 	@Override
 	public String getAllTrainees() {
 		return Trainees.getAllTrainees();
