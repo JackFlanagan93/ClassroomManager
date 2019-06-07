@@ -1,10 +1,13 @@
 package com.bae.persistance.repository;
 
+import static javax.transaction.Transactional.TxType.REQUIRED;
+
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
 import com.bae.persistance.domain.Classroom;
 import com.bae.persistance.domain.Trainees;
@@ -30,9 +33,12 @@ public class ClassroomDatabaseRepository implements Classroom_Interface{
 		return util.getJSONForObject(manager.find(Classroom.class, classroomID));
 	}
 
-	public String createClassroom(String classroomID) {
-		// TODO Auto-generated method stub
-		return null;
+	@Transactional(REQUIRED)
+	public String createClassroom(String classroom) {
+		Classroom aclassroom = util.getObjectForJSON(classroom, Classroom.class);
+		manager.persist(aclassroom);
+		//manager.persist(util.getObjectForJSON(classroom, Classroom.class));		
+		return "{\"message\"; \"Classroom Has Been Succesfully Added\"}";
 	}
 
 	public String deleteClassroom(int classroomID) {

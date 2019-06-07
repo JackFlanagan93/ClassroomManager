@@ -2,6 +2,7 @@ package com.bae.rest;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
@@ -26,5 +27,10 @@ public class TraineesController {
 		return service.findTrainee(traineeID);
 	}
 	
+	@Path("/CreateTrainee")
+	@POST
+	public String createTrainee(String trainee) {
+		return service.createTrainee(trainee);
+	}
 	
 }

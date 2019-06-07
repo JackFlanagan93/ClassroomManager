@@ -30,7 +30,7 @@ public class ClassroomMapRepository implements Classroom_Interface{
 	}
 
 	@Override
-	public String createClassroom(String classroomID) {
+	public String createClassroom(String classroom) {
 		// TODO Auto-generated method stub
 		return null;
 	}

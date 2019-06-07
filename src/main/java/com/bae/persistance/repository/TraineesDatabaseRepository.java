@@ -1,11 +1,15 @@
 package com.bae.persistance.repository;
 
+import static javax.transaction.Transactional.TxType.REQUIRED;
+
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
+import com.bae.persistance.domain.Classroom;
 import com.bae.persistance.domain.Trainees;
 import com.bae.util.JSONUtil;
 
@@ -29,9 +33,13 @@ public class TraineesDatabaseRepository implements Trainees_Interface {
 		
 	}
 
-	public String createTrainee(String traineeID) {
-		// TODO Auto-generated method stub
-		return null;
+	@Transactional(REQUIRED)
+	public String createTrainee(String trainee) {
+		Trainees aTrainee = util.getObjectForJSON(trainee, Trainees.class);
+		manager.persist(aTrainee);
+		//manager.persist(util.getObjectForJSON(trainee, Trainees.class));
+		
+		return "{\"message\"; \"Trainee Has Been Succesfully Added\"}";
 	}
 
 	public String deleteTrainee(int traineeID) {

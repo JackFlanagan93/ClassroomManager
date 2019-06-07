@@ -30,7 +30,7 @@ public class TraineesMapRepository implements Trainees_Interface {
 	}
 
 	@Override
-	public String createTrainee(String traineeID) {
+	public String createTrainee(String trainee) {
 		// TODO Auto-generated method stub
 		return null;
 	}
