@@ -11,35 +11,32 @@ public class TraineesService implements TraineesService_Interface{
 	private JSONUtil util;
 	
 	@Inject
-	Trainees_Interface trainees;
+	Trainees_Interface Trainees;
 	
 	@Override
 	public String getAllTrainees() {
-		return trainees.getAllTrainees();
+		return Trainees.getAllTrainees();
 	}
 
 	@Override
 	public String findTrainee(int traineeID) {
-		return trainees.findTrainee(traineeID);
+		return Trainees.findTrainee(traineeID);
 
 	}
 
 	@Override
-	public String createTrainee(String traineeID) {
-		// TODO Auto-generated method stub
-		return null;
+	public String createTrainee(String trainee) {
+		return Trainees.createTrainee(trainee);
 	}
 
 	@Override
 	public String deleteTrainee(int traineeID) {
-		// TODO Auto-generated method stub
-		return null;
+		return Trainees.deleteTrainee(traineeID);
 	}
 
 	@Override
 	public String updateTrainee(int traineeID, String trainee) {
-		// TODO Auto-generated method stub
-		return null;
+		return Trainees.updateTrainee(traineeID, trainee);
 	}
 
 }

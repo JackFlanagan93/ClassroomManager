@@ -3,7 +3,6 @@ package com.bae.business;
 import javax.inject.Inject;
 
 import com.bae.persistance.repository.Classroom_Interface;
-import com.bae.persistance.repository.Trainees_Interface;
 import com.bae.util.JSONUtil;
 
 public class ClassroomService implements ClassroomService_Interface{
@@ -12,36 +11,33 @@ public class ClassroomService implements ClassroomService_Interface{
 	private JSONUtil util;
 	
 	@Inject
-	Classroom_Interface classroom;
+	Classroom_Interface Classroom;
 	
 	@Override
 	public String getAllClassrooms() {
 		
-		return classroom.getAllClassrooms();
+		return Classroom.getAllClassrooms();
 	}
 
 	@Override
 	public String findClassroom(int classroomID) {
-		return classroom.findClassroom(classroomID);
+		return Classroom.findClassroom(classroomID);
 		 
 	}
 
 	@Override
-	public String createClassroom(String classroomID) {
-		// TODO Auto-generated method stub
-		return null;
+	public String createClassroom(String classroom) {
+		return Classroom.createClassroom(classroom);
 	}
 
 	@Override
 	public String deleteClassroom(int classroomID) {
-		// TODO Auto-generated method stub
-		return null;
+		return Classroom.deleteClassroom(classroomID);
 	}
 
 	@Override
 	public String updateClassroom(int classroomID, String classroom) {
-		// TODO Auto-generated method stub
-		return null;
+		return Classroom.updateClassroom(classroomID, classroom);
 	}
 
 }

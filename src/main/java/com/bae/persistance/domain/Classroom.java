@@ -9,7 +9,7 @@ import javax.persistence.Id;
 @Entity
 public class Classroom {
 
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int classroomID;
 	@Column(length=50)
 	private String trainer;
