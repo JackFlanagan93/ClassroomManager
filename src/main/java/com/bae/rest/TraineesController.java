@@ -1,6 +1,7 @@
 package com.bae.rest;
 
 import javax.inject.Inject;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -31,6 +32,12 @@ public class TraineesController {
 	@POST
 	public String createTrainee(String trainee) {
 		return service.createTrainee(trainee);
+	}
+	
+	@Path("/DeleteTrainee")
+	@DELETE
+	public String deleteTrainee(int traineeID) {
+		return service.deleteTrainee(traineeID);
 	}
 	
 }
