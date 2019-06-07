@@ -19,32 +19,38 @@ public class TraineesMapRepository implements Trainees_Interface {
 
 	@Override
 	public String getAllTrainees() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return j1.getJSONForObject(traineesMap.values());
 	}
 
 	@Override
 	public String findTrainee(int traineeID) {
-		// TODO Auto-generated method stub
-		return null;
+		return j1.getJSONForObject(traineesMap.get(traineeID));
 	}
 
 	@Override
 	public String createTrainee(String trainee) {
-		// TODO Auto-generated method stub
-		return null;
+		Trainees a1 = j1.getObjectForJSON(trainee, Trainees.class);
+		traineesMap.put(a1.getTraineeId(), a1);
+		return ("Account Created : " + j1.getJSONForObject(traineesMap.get(a1.getTraineeId())));
+				
 	}
 
 	@Override
 	public String deleteTrainee(int traineeID) {
-		// TODO Auto-generated method stub
-		return null;
+		traineesMap.remove(traineeID);	
+		return "Trainee Removed";
 	}
 
 	@Override
 	public String updateTrainee(int traineeID, String trainee) {
-		// TODO Auto-generated method stub
-		return null;
+		Trainees t_update = j1.getObjectForJSON(trainee, Trainees.class);
+
+		if (traineesMap.containsKey(traineeID)) {
+			traineesMap.replace(traineeID, t_update);
+			return "Trainee Updated : " + j1.getJSONForObject(traineesMap.values());
+		} 
+	return "This has not been updated";
 	}
 
 }
