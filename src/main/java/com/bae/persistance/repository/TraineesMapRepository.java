@@ -19,7 +19,6 @@ public class TraineesMapRepository implements Trainees_Interface {
 
 	@Override
 	public String getAllTrainees() {
-		
 		return j1.getJSONForObject(traineesMap.values());
 	}
 
@@ -32,8 +31,7 @@ public class TraineesMapRepository implements Trainees_Interface {
 	public String createTrainee(String trainee) {
 		Trainees a1 = j1.getObjectForJSON(trainee, Trainees.class);
 		traineesMap.put(a1.getTraineeId(), a1);
-		return ("Account Created : " + j1.getJSONForObject(traineesMap.get(a1.getTraineeId())));
-				
+		return "Account Created";
 	}
 
 	@Override
