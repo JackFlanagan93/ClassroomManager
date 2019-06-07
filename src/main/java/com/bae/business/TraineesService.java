@@ -1,44 +1,42 @@
-package com.bae.persistance.repository;
+package com.bae.business;
 
-import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 
-import com.bae.persistance.domain.Trainees;
+import com.bae.persistance.repository.Trainees_Interface;
 import com.bae.util.JSONUtil;
 
-@Default
-public class TraineesDatabaseRepository implements Trainees_Interface {
+public class TraineesService implements TraineesService_Interface{
 
-	@PersistenceContext(unitName = "primary")
-	private EntityManager manager;
-	
 	@Inject
 	private JSONUtil util;
 	
+	@Inject
+	Trainees_Interface trainees;
 	
+	@Override
 	public String getAllTrainees() {
-		Query query = manager.createQuery("SELECT a FROM Trainees a", Trainees.class);
-		return util.getJSONForObject(query.getResultList());
+		return trainees.getAllTrainees();
 	}
 
+	@Override
 	public String findTrainee(String traineeID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Override
 	public String createTrainee(String traineeID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Override
 	public String deleteTrainee(int traineeID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Override
 	public String updateTrainee(int traineeID, String trainee) {
 		// TODO Auto-generated method stub
 		return null;
