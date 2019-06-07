@@ -4,6 +4,7 @@ import javax.inject.Inject;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
@@ -14,31 +15,36 @@ public class ClassroomController {
 
 	@Inject
 	ClassroomService service;
-	
+
 	@Path("/GetAllClassrooms")
 	@GET
 	public String getAllClassrooms() {
 		return service.getAllClassrooms();
-		
+
 	}
-	
+
 	@Path("/FindClassroom/{classroomID}")
 	@GET
 	public String findClassroom(@PathParam("classroomID") int classroomID) {
 		return service.findClassroom(classroomID);
 	}
-	
+
 	@Path("/CreateClassroom")
 	@POST
 	public String createClassroom(String classroom) {
 		return service.createClassroom(classroom);
 	}
-	
+
 	@Path("/DeleteClassroom")
 	@DELETE
 	public String deleteClassroom(int classroomID) {
 		return service.deleteClassroom(classroomID);
 	}
 	
-}
+	@Path("/UpdateClassroom/{classroomID}")
+	@PUT
+	public String updateClassroom(@PathParam("classroomID") int classroomID, String classroom) {
+		return service.updateClassroom(classroomID, classroom);
+	}
 
+}
