@@ -7,7 +7,6 @@ import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
 
 import com.bae.persistance.domain.Classroom;
-import com.bae.persistance.domain.Trainees;
 import com.bae.util.JSONUtil;
 
 @Alternative
@@ -32,13 +31,13 @@ public class ClassroomMapRepository implements Classroom_Interface {
 	public String createClassroom(String classroom) {
 		Classroom a1 = j1.getObjectForJSON(classroom, Classroom.class);
 		classroomMap.put(a1.getClassroomId(), a1);
-		return ("Account Created : " + j1.getJSONForObject(classroomMap.get(a1.getClassroomId())));
+		return "Account Created";
 	}
 
 	@Override
 	public String deleteClassroom(int classroomID) {
 		classroomMap.remove(classroomID);
-		return "Trainee Removed";
+		return "Classroom Removed";
 	}
 
 	@Override
