@@ -41,10 +41,17 @@ public class ClassroomDatabaseRepository implements Classroom_Interface{
 		return "{\"message\"; \"Classroom Has Been Succesfully Added\"}";
 	}
 
+	@Transactional(REQUIRED)
 	public String deleteClassroom(int classroomID) {
-		// TODO Auto-generated method stub
-		return null;
+		Classroom classroomToDelete = util.getObjectForJSON(findClassroom(classroomID), Classroom.class);
+
+		if (manager.contains(manager.find(Classroom.class, classroomID))) {
+
+			manager.remove(manager.find(Classroom.class, classroomID));
+		}
+		return "{\"message\": \"Classroom sucessfully deleted\"}";
 	}
+	
 
 	public String updateClassroom(int classroomID, String classroom) {
 		// TODO Auto-generated method stub

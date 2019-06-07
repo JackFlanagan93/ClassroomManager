@@ -9,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
+import com.bae.persistance.domain.Classroom;
 import com.bae.persistance.domain.Trainees;
 import com.bae.util.JSONUtil;
 
@@ -47,11 +48,18 @@ public class TraineesDatabaseRepository implements Trainees_Interface {
 		return "{\"message\"; \"Trainee Has Been Succesfully Added\"}";
 	}
 
+	
+	@Transactional(REQUIRED)
 	public String deleteTrainee(int traineeID) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		Trainees traineeToDelete = util.getObjectForJSON(findTrainee(traineeID), Trainees.class);
 
+		if (manager.contains(manager.find(Trainees.class, traineeID))) {
+
+			manager.remove(manager.find(Trainees.class, traineeID));
+		}
+		return "{\"message\": \"Classroom sucessfully deleted\"}";
+	}
+	
 	public String updateTrainee(int traineeID, String trainee) {
 		// TODO Auto-generated method stub
 		return null;
